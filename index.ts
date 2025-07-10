@@ -42,7 +42,7 @@ app.get("/run", async (req, res) => {
       isActivelyTrading: isActivelyTrading === "true",
       isEtf: isEtf === "true",
       isFund: isFund === "true",
-      limit: Number(limit) || 30, // default limit to 400 if not provided
+      limit: Number(limit) || 400, // default limit to 400 if not provided
     };
 
     const data = await runBot(params);
@@ -53,6 +53,6 @@ app.get("/run", async (req, res) => {
   }
 });
 
-app.listen(PORT, async () => {
-  console.log(`✅ Server running at http://localhost:${PORT}`);
+app.listen(PORT, () => {
+  console.log(`Server running on port ${PORT}`);
 });
